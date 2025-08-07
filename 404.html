@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Conscientious Cleaners</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <img src="conscientious_logo.svg" alt="Conscientious Cleaners" class="logo">
+            <a href="tel:+14153743742" class="phone-link">Call Us: (415) 374-3742</a>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <main class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Oops! This Page Got Away From Us</h1>
+            <svg class="error-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="#FFBD00" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm0 464c-114.7 0-208-93.3-208-208S141.3 48 256 48s208 93.3 208 208-93.3 208-208 208zm-80-304c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm-176 96c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56zm112 0c-30.9 0-56 25.1-56 56s25.1 56 56 56 56-25.1 56-56-25.1-56-56-56z"/>
+            </svg>
+            <p class="error-message">Looks like we've misplaced this page while cleaning up. Don't worry - we'll help you find your way back to a sparkling clean website experience.</p>
+            <a href="/" class="home-button">Return to Homepage</a>
+        </div>
+    </main>
+
+    <!-- Footer (same as main site) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Conscientious Cleaners. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Same JavaScript as main site -->
+    <script src="script.js">
+
+    // script.js - Global JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile Menu Toggle (works on all pages)
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const phoneLink = document.querySelector('.phone-link');
+        
+        if (mobileMenuToggle && phoneLink) {
+            mobileMenuToggle.addEventListener('click', function() {
+                phoneLink.style.display = phoneLink.style.display === 'none' ? 'block' : 'none';
+                this.textContent = this.textContent === '☰' ? '✕' : '☰';
+            });
+            
+            // Hide phone link on mobile by default
+            if (window.innerWidth < 768) {
+                phoneLink.style.display = 'none';
+            }
+            
+            // Update on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    phoneLink.style.display = 'block';
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.textContent = '☰';
+                    }
+                } else {
+                    phoneLink.style.display = 'none';
+                }
+            });
+        }
+
+        // [Include all other existing JavaScript functions here]
+        // (Hero slider, lightbox, gallery filtering, etc.)
+    });
+
+    </script>
+</body>
+</html>
